@@ -13,13 +13,14 @@
 // limitations under the License.
 
 import 'package:flutter/material.dart';
+import 'colors.dart';
 
-class LoginPage extends StatefulWidget {
+class LoginUser extends StatefulWidget {
   @override
-  _LoginPageState createState() => _LoginPageState();
+  _LoginUserState createState() => _LoginUserState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _LoginUserState extends State<LoginUser> {
   final _usernameController = TextEditingController();
   final _passwordController = TextEditingController();
   @override
@@ -33,39 +34,40 @@ class _LoginPageState extends State<LoginPage> {
             Column(
               children: <Widget>[
                 Image.asset('assets/2.0x/logo.png'),
-
                 SizedBox(height: 16.0),
                 Text('Mangez simplement.'),
               ],
             ),
             SizedBox(height: 50.0),
             // TODO: Wrap Username with AccentColorOverride (103)
-            // TODO: Remove filled: true values (103)
-            // TODO: Wrap Password with AccentColorOverride (103)
-            // [Name]
-            TextField(
-              controller: _usernameController,
-              decoration: InputDecoration(
-                filled: true,
-                labelText: 'Username',
+// [Name]
+            AccentColorOverride(
+              color: kFaimiamBrown900,
+              child: TextField(
+                controller: _usernameController,
+                decoration: InputDecoration(
+                  labelText: 'Username',
+                ),
               ),
             ),
-            // spacer
+
             SizedBox(height: 12.0),
-            // [Password]
-            TextField(
-              controller: _passwordController,
-              decoration: InputDecoration(
-                filled: true,
-                labelText: 'Password',
+            // TODO: Wrap Password with AccentColorOverride (103)
+// [Password]
+            AccentColorOverride(
+              color: kFaimiamBrown900,
+              child: TextField(
+                controller: _passwordController,
+                decoration: InputDecoration(
+                  labelText: 'Password',
+                ),
               ),
-              obscureText: true,
-            ),           
+            ),
             SizedBox(height: 50.0),
 
             RaisedButton(
               shape: Border.all(color: Colors.blue),
-              color:Color(0xff8a2c84),
+              color: Color(0xff8a2c84),
               textColor: Colors.white,
               child: Text('Clear'),
               onPressed: () {
@@ -77,7 +79,7 @@ class _LoginPageState extends State<LoginPage> {
             // TODO: Add a beveled rectangular border to NEXT (103)
             RaisedButton(
               shape: Border.all(color: Colors.blue),
-              color:Color(0xffe53764),
+              color: Color(0xffe53764),
               textColor: Colors.white,
               child: Text('Login'),
               onPressed: () {
@@ -92,3 +94,18 @@ class _LoginPageState extends State<LoginPage> {
 }
 
 // TODO: Add AccentColorOverride (103)
+class AccentColorOverride extends StatelessWidget {
+  const AccentColorOverride({Key key, this.color, this.child})
+      : super(key: key);
+
+  final Color color;
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
+    return Theme(
+      child: child,
+      data: Theme.of(context).copyWith(accentColor: color),
+    );
+  }
+}
