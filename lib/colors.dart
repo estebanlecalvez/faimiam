@@ -1,13 +1,31 @@
+// Copyright 2018-present the Flutter authors. All Rights Reserved.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+// http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
 import 'package:flutter/material.dart';
 
-const kFaimiamPink50 = const Color(0xff8a2c84);
-const kFaimiamPink100 = const Color(0xffe53764);
-const kFaimiamPink300 = const Color(0xFFFBB8AC);
-const kFaimiamPink400 = const Color(0xFFEAA4A4);
+//Darker purple
+const kShrinePink50 = const Color(0xff8a2c84);
+//Less darker purple
+const kShrinePink100 = const Color(0xffa42f7b);
+//Darker pink
+const kShrinePink300 = const Color(0xffc03371);
+//Less darker pink
+const kShrinePink400 = const Color(0xffe33765);
 
-const kFaimiamBrown900 = const Color(0xFF442B2D);
+const kShrineBrown900 = const Color(0xFF442B2D);
 
-const kFaimiamErrorRed = const Color(0xFFC5032B);
+const kShrineErrorRed = const Color(0xFFC5032B);
 
-const kFaimiamSurfaceWhite = const Color(0xFFFFFBFA);
-const kFaimiamBackgroundWhite = Colors.white;
+const kShrineSurfaceWhite = const Color(0xFFFFFBFA);
+const kShrineBackgroundWhite = Colors.white;

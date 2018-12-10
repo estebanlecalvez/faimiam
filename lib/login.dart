@@ -13,16 +13,18 @@
 // limitations under the License.
 
 import 'package:flutter/material.dart';
+
 import 'colors.dart';
 
-class LoginUser extends StatefulWidget {
+class LoginPage extends StatefulWidget {
   @override
-  _LoginUserState createState() => _LoginUserState();
+  _LoginPageState createState() => _LoginPageState();
 }
 
-class _LoginUserState extends State<LoginUser> {
+class _LoginPageState extends State<LoginPage> {
   final _usernameController = TextEditingController();
   final _passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,19 +32,16 @@ class _LoginUserState extends State<LoginUser> {
         child: ListView(
           padding: EdgeInsets.symmetric(horizontal: 24.0),
           children: <Widget>[
-            SizedBox(height: 80.0),
+            SizedBox(height: 90.0),
             Column(
               children: <Widget>[
                 Image.asset('assets/2.0x/logo.png'),
                 SizedBox(height: 16.0),
-                Text('Mangez simplement.'),
               ],
             ),
-            SizedBox(height: 50.0),
-            // TODO: Wrap Username with AccentColorOverride (103)
-// [Name]
+            SizedBox(height: 90.0),
             AccentColorOverride(
-              color: kFaimiamBrown900,
+              color: kShrinePink300,
               child: TextField(
                 controller: _usernameController,
                 decoration: InputDecoration(
@@ -50,12 +49,9 @@ class _LoginUserState extends State<LoginUser> {
                 ),
               ),
             ),
-
             SizedBox(height: 12.0),
-            // TODO: Wrap Password with AccentColorOverride (103)
-// [Password]
             AccentColorOverride(
-              color: kFaimiamBrown900,
+              color: kShrinePink300,
               child: TextField(
                 controller: _passwordController,
                 decoration: InputDecoration(
@@ -63,28 +59,32 @@ class _LoginUserState extends State<LoginUser> {
                 ),
               ),
             ),
-            SizedBox(height: 50.0),
-
-            RaisedButton(
-              shape: Border.all(color: Colors.blue),
-              color: Color(0xff8a2c84),
-              textColor: Colors.white,
-              child: Text('Clear'),
-              onPressed: () {
-                _usernameController.clear();
-                _passwordController.clear();
-              },
-            ),
-            // TODO: Add an elevation to NEXT (103)
-            // TODO: Add a beveled rectangular border to NEXT (103)
-            RaisedButton(
-              shape: Border.all(color: Colors.blue),
-              color: Color(0xffe53764),
-              textColor: Colors.white,
-              child: Text('Login'),
-              onPressed: () {
-                Navigator.pop(context);
-              },
+            ButtonBar(
+              children: <Widget>[
+                RaisedButton(
+                  child: Text('CANCEL'),
+                  color: kShrinePink100,
+                  textColor: Colors.white,
+                  shape: BeveledRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(7.0)),
+                  ),
+                  onPressed: () {
+                    _usernameController.clear();
+                    _passwordController.clear();
+                  },
+                ),
+                RaisedButton(
+                  child: Text('NEXT'),
+                  color: kShrinePink400,
+                  textColor: Colors.white,
+                  shape: BeveledRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(7.0)),
+                  ),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                ),
+              ],
             ),
           ],
         ),
@@ -93,7 +93,6 @@ class _LoginUserState extends State<LoginUser> {
   }
 }
 
-// TODO: Add AccentColorOverride (103)
 class AccentColorOverride extends StatelessWidget {
   const AccentColorOverride({Key key, this.color, this.child})
       : super(key: key);
