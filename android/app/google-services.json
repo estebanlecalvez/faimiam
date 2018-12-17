@@ -1,0 +1,73 @@
+{
+  "project_info": {
+    "project_number": "566011549937",
+    "firebase_url": "https://faimiam-m.firebaseio.com",
+    "project_id": "faimiam-m",
+    "storage_bucket": "faimiam-m.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:566011549937:android:c9233f5ef928aaec",
+        "android_client_info": {
+          "package_name": "com.example.mdc100series"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "566011549937-tlhd9ucagrg1k821hmrce5fm4gaorvpk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBWVxvdq6kVQ_5p2LOlXlm0tS3Lb5xRGWY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:566011549937:android:d46e5bf3f519f6cb",
+        "android_client_info": {
+          "package_name": "fr.esteban.faimiam"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "566011549937-tlhd9ucagrg1k821hmrce5fm4gaorvpk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBWVxvdq6kVQ_5p2LOlXlm0tS3Lb5xRGWY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

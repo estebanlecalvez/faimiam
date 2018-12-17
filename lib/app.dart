@@ -20,7 +20,9 @@ import 'home.dart';
 import 'login.dart';
 import 'category_menu_page.dart';
 import 'model/product.dart';
+import 'ShowDish.dart';
 import 'supplemental/cut_corners_border.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class ShrineApp extends StatefulWidget {
   @override
@@ -29,26 +31,41 @@ class ShrineApp extends StatefulWidget {
 
 class _ShrineAppState extends State<ShrineApp> {
   Category _currentCategory = Category.all;
+  String _currentWord = "";
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Shrine',
-      home: Backdrop(
-        currentCategory: _currentCategory,
-        frontLayer: HomePage(category: _currentCategory),
-        backLayer: CategoryMenuPage(
+        title: 'FEEMIAM',
+        home: Backdrop(
           currentCategory: _currentCategory,
-          onCategoryTap: _onCategoryTap,
+          frontLayer: HomePage(category: _currentCategory),
+          backLayer: CategoryMenuPage(
+            currentCategory: _currentCategory,
+            onCategoryTap: _onCategoryTap,
+          ),
+          frontTitle: Text('éemiam'),
+          backTitle: Text('MENU'),
         ),
-        frontTitle: Text('SHRINE'),
-        backTitle: Text('MENU'),
-      ),
-      initialRoute: '/login',
-      onGenerateRoute: _getRoute,
-      theme: _kShrineTheme,
-    );
+        initialRoute: '/login',
+        onGenerateRoute: _getRoute,
+        theme: _kShrineTheme,
+        routes: {
+          "/dish": (context) => ShowDish(),
+          "/home": (context) => HomePage()
+        });
   }
+
+  // Widget getSnapshot() {
+  //   return StreamBuilder<QuerySnapshot>(
+  //     stream: Firestore.instance.collection('dishes').snapshots(),
+  //     builder: (context, snapshot) {
+  //       if (!snapshot.hasData) return LinearProgressIndicator();
+
+  //       return _buildList(context, snapshot.data.documents);
+  //     },
+  //   );
+  // }
 
   /// Function to call when a [Category] is tapped.
   void _onCategoryTap(Category category) {
@@ -101,24 +118,24 @@ ThemeData _buildShrineTheme() {
 }
 
 TextTheme _buildShrineTextTheme(TextTheme base) {
-  return base.copyWith(
-    headline: base.headline.copyWith(
-      fontWeight: FontWeight.w500,
-    ),
-    title: base.title.copyWith(
-        fontSize: 18.0
-    ),
-    caption: base.caption.copyWith(
-      fontWeight: FontWeight.w400,
-      fontSize: 14.0,
-    ),
-    body2: base.body2.copyWith(
-      fontWeight: FontWeight.w500,
-      fontSize: 16.0,
-    ),
-  ).apply(
-    fontFamily: 'Rubik',
-    displayColor: kShrineBrown900,
-    bodyColor: kShrineBrown900,
-  );
+  return base
+      .copyWith(
+        headline: base.headline.copyWith(
+          fontWeight: FontWeight.w500,
+        ),
+        title: base.title.copyWith(fontSize: 18.0),
+        caption: base.caption.copyWith(
+          fontWeight: FontWeight.w400,
+          fontSize: 14.0,
+        ),
+        body2: base.body2.copyWith(
+          fontWeight: FontWeight.w500,
+          fontSize: 16.0,
+        ),
+      )
+      .apply(
+        fontFamily: 'Rubik',
+        displayColor: kShrineBrown900,
+        bodyColor: kShrineBrown900,
+      );
 }

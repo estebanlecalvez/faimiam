@@ -97,7 +97,7 @@ class _BackdropTitle extends AnimatedWidget {
                   begin: Offset.zero,
                   end: Offset(1.0, 0.0),
                 ).evaluate(animation),
-                child: ImageIcon(AssetImage('assets/diamond.png')),
+                child: ImageIcon(AssetImage('assets/logo.png')),
               )]),
           ),
         ),

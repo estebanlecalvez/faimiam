@@ -22,9 +22,9 @@ class AsymmetricView extends StatelessWidget {
 
   AsymmetricView({Key key, this.products});
 
-  List<Container> _buildColumns(BuildContext context) {
+  List<GestureDetector> _buildColumns(BuildContext context) {
     if (products == null || products.isEmpty) {
-      return <Container>[];
+      return <GestureDetector>[];
     }
 
     /// This will return a list of columns. It will oscillate between the two
@@ -53,13 +53,17 @@ class AsymmetricView extends StatelessWidget {
           product: products[_oddCasesIndex(index)],
         );
       }
-      return Container(
-        width: width,
-        child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 16.0),
-          child: column,
-        ),
-      );
+      return GestureDetector(
+          onTap: () {
+            Navigator.pushNamed(context, '/dish');
+          },
+          child: Container(
+            width: width,
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 16.0),
+              child: column,
+            ),
+          ));
     }).toList();
   }
 
